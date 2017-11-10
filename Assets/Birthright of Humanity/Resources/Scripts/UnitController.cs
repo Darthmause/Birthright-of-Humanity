@@ -70,5 +70,34 @@ namespace GabrielGaspar.BirthrightOfHumanity
 			}
 			return selectedUnits.ToArray();
 		}
+
+		public void Update()
+		{
+			if (Input.GetButton("Action"))
+			{
+				Action();
+			}
+		}
+
+
+		public void Action()
+		{
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+
+			if (Physics.Raycast(ray, out hit, LayerMask.GetMask("Interactable")))
+			{
+				if (hit.collider.tag == "Terrain")
+				{
+					foreach (Unit unit in selectedUnits)
+					{
+						if (unit is IMoveable)
+						{
+							unit.Move(hit.point);
+						}
+					}
+				}
+			}
+		}
 	}
 }

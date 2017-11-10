@@ -55,6 +55,17 @@ namespace GabrielGaspar.BirthrightOfHumanity
 		public void Start()
 		{
 			UnitController.AddUnit(this);
+			agent = GetComponent<NavMeshAgent>();
+			agent.stoppingDistance = 2;
+			agent.autoRepath = true;
+		}
+
+		public void Update()
+		{
+			if(agent.isPathStale)
+			{
+				agent.isStopped =true;
+			}
 		}
 
 		public void Damage(int amount)
@@ -64,7 +75,8 @@ namespace GabrielGaspar.BirthrightOfHumanity
 
 		public void Move(Vector3 position)
 		{
-		
+			agent.SetDestination(position);
+			agent.isStopped = false;
 		}
 	}
 }
