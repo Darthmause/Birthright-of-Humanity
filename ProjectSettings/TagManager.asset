@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Terrain
   - Unit
+  - Factory
   layers:
   - Default
   - TransparentFX

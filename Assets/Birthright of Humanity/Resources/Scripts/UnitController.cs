@@ -97,6 +97,10 @@ namespace GabrielGaspar.BirthrightOfHumanity
 						}
 					}
 				}
+				else if(hit.collider.tag == "Factory")
+				{
+					GameManager.Instance.CreateUnits();
+				}
 			}
 		}
 	}

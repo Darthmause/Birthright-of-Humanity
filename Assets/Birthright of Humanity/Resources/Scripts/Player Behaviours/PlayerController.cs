@@ -6,7 +6,7 @@ namespace GabrielGaspar.BirthrightOfHumanity
 	{
 		public void Start()
 		{
-			GameManager.Instance.RegisterPlayer(this);
+		//	GameManager.Instance.RegisterPlayer(this);
 		}
 	}
 }
